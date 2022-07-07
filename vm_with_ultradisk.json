@@ -311,6 +311,31 @@
             }
         },
         {
+            "name": "config-app",
+            "type": "extensions",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2019-03-01",
+            "dependsOn": [
+              "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
+            ],
+            "tags": {
+              "displayName": "config-app"
+            },
+            "properties": {
+              "publisher": "Microsoft.Azure.Extensions",
+              "type": "CustomScript",
+              "typeHandlerVersion": "2.1",
+              "autoUpgradeMinorVersion": true,
+              "settings": {
+                },
+              "protectedSettings": {
+                "commandToExecute": "sh customshell.sh",
+                "fileUris": ["https://raw.githubusercontent.com/gurucb/ultradisksstemplates/main/customshell.sh"
+                ]  
+              }
+            }
+          },
+        {
               "type": "Microsoft.Network/networkSecurityGroups",
               "apiVersion": "2019-02-01",
                "name": "[variables('nsgName')]",
