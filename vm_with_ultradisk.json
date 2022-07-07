@@ -393,23 +393,32 @@
                 }
             }
         },
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "extensions/MyCustomScriptExtension",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[parameters('location')]",
-            "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('virtualMachineName'))]"],
-            "properties":
-            {
-              "publisher": "Microsoft.OSTCExtensions",
-              "type": "CustomScriptForLinux",
-              "typeHandlerVersion": "1.2",
-              "settings": {
-              "fileUris": [ "https://raw.githubusercontent.com/gurucb/ultradisksstemplates/main/customshell.sh"],
-              "commandToExecute": "customshell.sh"
-              }
+ {
+        "name": "ubuntuVM1/customScript1",
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "apiVersion": "2021-03-01",
+        "location": "[resourceGroup().location]",
+        "tags": {
+            "displayName": "customScript1 for Linux VM"
+        },
+        "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines', 'ubuntuVM1')]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.Azure.Extensions",
+            "type": "CustomScript",
+            "typeHandlerVersion": "2.1",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "fileUris": [
+                    "[concat('https://raw.githubusercontent.com/gurucb/ultradisksstemplates/main/customshell.sh')]"
+                ]
+            },
+            "protectedSettings": {
+                "commandToExecute": "sh customshell.sh"
             }
-            }
+        }
+    }
     ]    
 
 }
