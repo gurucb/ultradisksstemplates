@@ -20,10 +20,10 @@ echo $HOME
 # }
 # DISKS=$(scan_for_new_disks)
 
-        for DISKS in "${DISKS[@]}";
+        for disk in "${DISKS[@]}";
         do
-                echo "Checking for disk ${DISKS}"
-                isFormatted=$(lsblk -no KNAME,FSTYPE ${DISKS} |wc -w)
+                echo "Checking for disk ${disk}"
+                isFormatted=$(lsblk -no KNAME,FSTYPE ${disk} |wc -w)
                 # if [[ ${isFormatted} -eq 1 ]];
                 # then
                         # echo "Drive ${DISKS} is NOT FORMATTED"
