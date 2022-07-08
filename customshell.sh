@@ -3,22 +3,20 @@ echo $HOME
 
 sudo apt-get -y -q=2 install jq
 
-cat /etc/fstab | grep "VolGroup00\|iris01vg"
-if [[ ${?}  -ne  0 ]]; then
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-06-01" | jq > irisMetadata.txt
-vm_gen=$(cat irisMetadata.txt |jq .compute.vmSize |tr -d '"' |awk -F_ '{print $3}')
-echo "Generation of Virtual Machine"
-echo $vm_gen
+# cat /etc/fstab | grep "VolGroup00\|iris01vg"
+# if [[ ${?}  -ne  0 ]]; then
+# curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-06-01" | jq > irisMetadata.txt
+# vm_gen=$(cat irisMetadata.txt |jq .compute.vmSize |tr -d '"' |awk -F_ '{print $3}')
 
-        if [[ $vm_gen -eq v4 ]]; then
-            BLACKLIST="/dev/sda"
-        else
+        # if [[ $vm_gen -eq v4 ]]; then
+            # BLACKLIST="/dev/sda"
+        # else
             BLACKLIST="/dev/sda|/dev/sdb"
-        fi
+        # fi
 
         DISKS=($(ls -1 /dev/sd*|egrep -v "${BLACKLIST}"|egrep -v "[0-9]$"))
 
-        for disk in "${DISKS[@]}";
+        for disk in "${DISKS[@]}" ; do
         do
                 echo "Checking for disk ${disk}"
                 isFormatted=$(lsblk -no KNAME,FSTYPE ${disk} |wc -w)
