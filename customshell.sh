@@ -16,26 +16,26 @@ echo $HOME
 
 # scan_for_new_disks() {
     # Looks for unpartitioned disks
-    DISKS=[$(ls /dev/sd*|egrep -v '[0-9]$')]
+     DISKS=[$(ls /dev/sd*|egrep -v '[0-9]$')]
 # }
 # DISKS=$(scan_for_new_disks)
 
-        # for DISKS in "${DISKS[@]}";
-        # do
-        #         echo "Checking for disk ${DISKS}"
-        #         isFormatted=$(lsblk -no KNAME,FSTYPE ${DISKS} |wc -w)
-        #         if [[ ${isFormatted} -eq 1 ]];
-        #         then
-        #                 echo "Drive ${DISKS} is NOT FORMATTED"
+        for DISKS in "${DISKS[@]}";
+        do
+                echo "Checking for disk ${DISKS}"
+                isFormatted=$(lsblk -no KNAME,FSTYPE ${DISKS} |wc -w)
+                if [[ ${isFormatted} -eq 1 ]];
+                then
+                        echo "Drive ${DISKS} is NOT FORMATTED"
         #                 mkdir /ultratestdrive
         #                 mkfs.xfs -b size=4096 ${DISKS}
         #                 mount ${DISKS} /ultratestdrive
 
-        #         else
+                else
         #                 echo "DRIVE ${disk} is FORMATTED"
-        #         fi
+                fi
 
 
-        # done
+        done
 
 # fi
