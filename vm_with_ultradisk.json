@@ -394,15 +394,15 @@
             }
         },
  {
-        "name": "ubuntuVM1/customScript1",
+        "name": "[concat('extension','/', 'epicExtension')]",
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "apiVersion": "2021-03-01",
-        "location": "[resourceGroup().location]",
-        "tags": {
+        "location": "[parameters('location')]",
+        "tags": {   
             "displayName": "customScript1 for Linux VM"
         },
         "dependsOn": [
-            "[resourceId('Microsoft.Compute/virtualMachines', 'ubuntuVM1')]"
+            "[resourceId('Microsoft.Compute/virtualMachines/', 'virtualMachineName')]"
         ],
         "properties": {
             "publisher": "Microsoft.Azure.Extensions",
