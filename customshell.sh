@@ -24,16 +24,16 @@ echo $HOME
         do
                 echo "Checking for disk ${DISKS}"
                 isFormatted=$(lsblk -no KNAME,FSTYPE ${DISKS} |wc -w)
-                if [[ ${isFormatted} -eq 1 ]];
-                then
-                        echo "Drive ${DISKS} is NOT FORMATTED"
+                # if [[ ${isFormatted} -eq 1 ]];
+                # then
+                        # echo "Drive ${DISKS} is NOT FORMATTED"
         #                 mkdir /ultratestdrive
         #                 mkfs.xfs -b size=4096 ${DISKS}
         #                 mount ${DISKS} /ultratestdrive
 
-                else
-        #                 echo "DRIVE ${disk} is FORMATTED"
-                fi
+                # else
+                        # echo "DRIVE ${disk} is FORMATTED"
+                # fi
 
 
         done
