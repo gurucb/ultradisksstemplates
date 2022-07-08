@@ -16,11 +16,7 @@ echo $vm_gen
             BLACKLIST="/dev/sda|/dev/sdb"
         fi
 
-        echo "List of default drives that will be ignored"
-        echo ${BLACKLIST}
-        DISKS=($(ls /dev/sd*|egrep -v "${BLACKLIST}|[0-9]$"))
-        echo "Below disks will be checked if they are mounted"
-        echo ${DISKS[@]}
+        DISKS=($(ls -1 /dev/sd*|egrep -v "${BLACKLIST}"|egrep -v "[0-9]$"))
 
         for disk in "${DISKS[@]}";
         do
