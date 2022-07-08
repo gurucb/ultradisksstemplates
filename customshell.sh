@@ -14,12 +14,11 @@ echo $HOME
         BLACKLIST="/dev/sda|/dev/sdb"
         # # fi
 
-scan_for_new_disks() {
+# scan_for_new_disks() {
     # Looks for unpartitioned disks
-    declare -a RET
-    DEVS=$(ls -1 /dev/sd*|egrep -v "${BLACKLIST}"|egrep -v "[0-9]$")
-}
-DISKS=($(scan_for_new_disks))
+    DISKS=[$(ls /dev/sd*|egrep -v '[0-9]$')]
+# }
+# DISKS=$(scan_for_new_disks)
 
         # for DISKS in "${DISKS[@]}";
         # do
