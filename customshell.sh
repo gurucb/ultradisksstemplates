@@ -11,10 +11,10 @@ echo $HOME
         # if [[ $vm_gen -eq v4 ]]; then
             # BLACKLIST="/dev/sda"
         # else
-        #     BLACKLIST="/dev/sda|/dev/sdb"
+        BLACKLIST="/dev/sda|/dev/sdb"
         # # fi
 
-        # DISKS=($(ls -1 /dev/sd*|egrep -v "${BLACKLIST}"|egrep -v "[0-9]$"))
+        DISKS=($(ls -1 /dev/sd*|egrep -v "${BLACKLIST}"|egrep -v "[0-9]$"))
 
         # for DISKS in "${DISKS[@]}";
         # do
