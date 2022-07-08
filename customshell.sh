@@ -11,12 +11,11 @@ echo "Generation of Virtual Machine"
 echo $vm_gen
 
         if [[ $vm_gen -eq v4 ]]; then
-                echo "Version v4"
-                BLACKLIST="/dev/sda"
+            BLACKLIST="/dev/sda"
         else
-                echo "Version V5"
-                BLACKLIST="/dev/sda|/dev/sdb"
+            BLACKLIST="/dev/sda|/dev/sdb"
         fi
+
         echo "List of default drives that will be ignored"
         echo ${BLACKLIST}
         DISKS=($(ls /dev/sd*|egrep -v "${BLACKLIST}|[0-9]$"))
