@@ -11,27 +11,27 @@ echo $HOME
         # if [[ $vm_gen -eq v4 ]]; then
             # BLACKLIST="/dev/sda"
         # else
-            BLACKLIST="/dev/sda|/dev/sdb"
-        # fi
+        #     BLACKLIST="/dev/sda|/dev/sdb"
+        # # fi
 
-        DISKS=($(ls -1 /dev/sd*|egrep -v "${BLACKLIST}"|egrep -v "[0-9]$"))
+        # DISKS=($(ls -1 /dev/sd*|egrep -v "${BLACKLIST}"|egrep -v "[0-9]$"))
 
-        for disk in "${DISKS[@]}";
-        do
-                echo "Checking for disk ${disk}"
-                isFormatted=$(lsblk -no KNAME,FSTYPE ${disk} |wc -w)
-                if [[ ${isFormatted} -eq 1 ]];
-                then
-                        echo "Drive ${disk} is NOT FORMATTED"
-                        mkdir /ultratestdrive
-                        mkfs.xfs -b size=4096 ${disk}
-                        mount ${disk} /ultratestdrive
+        # for DISKS in "${DISKS[@]}";
+        # do
+        #         echo "Checking for disk ${DISKS}"
+        #         isFormatted=$(lsblk -no KNAME,FSTYPE ${DISKS} |wc -w)
+        #         if [[ ${isFormatted} -eq 1 ]];
+        #         then
+        #                 echo "Drive ${DISKS} is NOT FORMATTED"
+        #                 mkdir /ultratestdrive
+        #                 mkfs.xfs -b size=4096 ${DISKS}
+        #                 mount ${DISKS} /ultratestdrive
 
-                else
-                        echo "DRIVE ${disk} is FORMATTED"
-                fi
+        #         else
+        #                 echo "DRIVE ${disk} is FORMATTED"
+        #         fi
 
 
-        done
+        # done
 
 # fi
