@@ -1,7 +1,7 @@
 #!/bin/bash
 echo $HOME
 
-sudo apt-get -y -q=2 install jq
+#sudo apt-get -y -q=2 install jq
 
 # cat /etc/fstab | grep "VolGroup00\|iris01vg"
 # if [[ ${?}  -ne  0 ]]; then
@@ -16,7 +16,7 @@ sudo apt-get -y -q=2 install jq
 
         DISKS=($(ls -1 /dev/sd*|egrep -v "${BLACKLIST}"|egrep -v "[0-9]$"))
 
-        for disk in "${DISKS[@]}" ; do
+        for disk in "${DISKS[@]}";
         do
                 echo "Checking for disk ${disk}"
                 isFormatted=$(lsblk -no KNAME,FSTYPE ${disk} |wc -w)
@@ -34,4 +34,4 @@ sudo apt-get -y -q=2 install jq
 
         done
 
-fi
+# fi
