@@ -394,7 +394,7 @@
             }
         },
  {
-        "name": "[concat('extension','/', 'epicExtension')]",
+        "name": "[concat(parameters('virtualMachineName'),'/', 'epicExtension')]",
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "apiVersion": "2021-03-01",
         "location": "[parameters('location')]",
@@ -402,7 +402,7 @@
             "displayName": "customScript1 for Linux VM"
         },
         "dependsOn": [
-            "[resourceId('Microsoft.Compute/virtualMachines/', 'virtualMachineName')]"
+            "[resourceId('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
         ],
         "properties": {
             "publisher": "Microsoft.Azure.Extensions",
