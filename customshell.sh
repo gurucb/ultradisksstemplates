@@ -1,7 +1,7 @@
 #!/bin/bash
 echo $HOME
 
-apt-get -y -q=2 install jq
+sudo apt-get -y -q=2 install jq
 
 cat /etc/fstab | grep "VolGroup00\|iris01vg"
 if [[ ${?}  -ne  0 ]]; then
