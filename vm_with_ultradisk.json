@@ -393,7 +393,7 @@
                 }
             }
         },
- {
+    {
         "name": "[concat(parameters('virtualMachineName'),'/', 'epicExtension')]",
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "apiVersion": "2021-03-01",
