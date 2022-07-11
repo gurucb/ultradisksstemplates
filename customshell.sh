@@ -11,12 +11,12 @@ echo $HOME
         # if [[ $vm_gen -eq v4 ]]; then
             # BLACKLIST="/dev/sda"
         # else
-        BLACKLIST="/dev/sda|/dev/sdb"
+        # BLACKLIST="/dev/sda|/dev/sdb"
         # # fi
 
 # scan_for_new_disks() {
     # Looks for unpartitioned disks
-     DISKS=($(ls /dev/sd*|egrep -v '[0-9]$'))
+#      DISKS=($(ls /dev/sd*|egrep -v '[0-9]$'))
 # }
 # DISKS=$(scan_for_new_disks)
 
