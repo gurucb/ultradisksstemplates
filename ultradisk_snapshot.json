@@ -1,0 +1,34 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "snapshotName": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+        "sourceUri": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Compute/snapshots",
+            "apiVersion": "2022-03-02",
+            "name": "[parameters('snapshotName')]",
+            "location": "[parameters('location')]",
+            "tags": {},
+            "properties": {
+                "creationData": {
+                    "createOption": "Copy",
+                    "sourceResourceId": "[parameters('sourceUri')]"
+                },
+                "incremental": "true"
+            }
+        }
+    ]
+}

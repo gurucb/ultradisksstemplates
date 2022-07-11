@@ -23,7 +23,7 @@ echo $HOME
         # for disk in "${DISKS[@]}";
         # do
         #         echo "Checking for disk ${disk}"
-        #         isFormatted=$(lsblk -no KNAME,FSTYPE ${disk} |wc -w)
+        #         isFormatted=$(lsblk ${disk} -no fstype |wc -w)
         #         # if [[ ${isFormatted} -eq 1 ]];
         #         # then
         #                 # echo "Drive ${DISKS} is NOT FORMATTED"
