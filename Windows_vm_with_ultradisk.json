@@ -209,8 +209,8 @@
                 "SkuValue": "11.1"
             }
         },
-        "addressPrefix": "10.2.0.0/16",
-        "subnetPrefix": "10.2.0.0/24",
+        "addressPrefix": "10.4.0.0/16",
+        "subnetPrefix": "10.4.0.0/24",
         "publicIPAddressType": "Static",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
         "networkInterfaceName": "[toLower(parameters('virtualMachineName'))]",
