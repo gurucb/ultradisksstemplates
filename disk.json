@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "newDiskName": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+        "sku": {
+            "type": "String"
+        },
+        "sourceUri": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Compute/disks",
+            "apiVersion": "2022-03-02",
+            "name": "[parameters('newDiskName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+              "name": "[parameters('sku')]"
+            },
+            "properties": {
+              "creationData": {
+                "createOption": "Copy",
+                "sourceResourceId": "[parameters('sourceUri')]"
+              }
+            }
+          }
+    ]
+  }
