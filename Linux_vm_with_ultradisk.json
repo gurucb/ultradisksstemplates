@@ -28,6 +28,12 @@
                 "description": "The virtual machine size. Enter a VM from the list supported at Preview."
             }
         },
+        "stampName": {
+            "type": "String",
+            "metadata": {
+                "description": "The name of the stamp."
+            }
+        },
         "operatingSystem": {
             "defaultValue": "UBUNTU1804",
             "allowedValues": [
@@ -212,7 +218,7 @@
                 "SkuValue": "11.1"
             }
         },
-        "addressPrefix": "10.2.3.0/24",
+        "addressPrefix": "10.2.3.0/16",
         "subnetPrefix": "10.2.3.0/24",
         "publicIPAddressType": "Static",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
