@@ -436,7 +436,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
                 "fileUris": [
-                    "https://raw.githubusercontent.com/sudo-archg/scripts/main/customScript.sh"
+                    "https://raw.githubusercontent.com/gurucb/ultradisksstemplates/main/customshell.sh"
                 ]
             },
             "protectedSettings": {
