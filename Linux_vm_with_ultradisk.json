@@ -61,41 +61,41 @@
                 "description": "Location for all resources."
             }
         },
-        // "dataDisksCount": {
-        //     "defaultValue": 1,
-        //     "type": "Int",
-        //     "metadata": {
-        //         "description": "Number of Ultra SSD data disks to attach to VM."
-        //     }
-        // },
-        // "dataDiskSizeInGB": {
-        //     "defaultValue": 1048,
-        //     "type": "Int",
-        //     "metadata": {
-        //         "description": "Data Disk size in GiB."
-        //     }
-        // },
-        // "diskIOPSReadWrite": {
-        //     "defaultValue": 51200,
-        //     "type": "Int",
-        //     "metadata": {
-        //         "description": "Data Disk IOPS value representing the maximum IOPS that the disk can achieve."
-        //     }
-        // },
-        // "diskMbpsReadWrite": {
-        //     "defaultValue": 768,
-        //     "type": "Int",
-        //     "metadata": {
-        //         "description": "Data Disk MBps value representing the maximum throughput that the disk can achieve."
-        //     }
-        // },
-        // "logicalSectorSize": {
-        //     "defaultValue": 4096, 
-        //     "type": "Int",
-        //     "metadata": {
-        //         "descriptions": "Logical sector size in bytes for Ultra disks."
-        //     }
-        // },
+        "dataDisksCount": {
+            "defaultValue": 1,
+            "type": "Int",
+            "metadata": {
+                "description": "Number of Ultra SSD data disks to attach to VM."
+            }
+        },
+        "dataDiskSizeInGB": {
+            "defaultValue": 1048,
+            "type": "Int",
+            "metadata": {
+                "description": "Data Disk size in GiB."
+            }
+        },
+        "diskIOPSReadWrite": {
+            "defaultValue": 51200,
+            "type": "Int",
+            "metadata": {
+                "description": "Data Disk IOPS value representing the maximum IOPS that the disk can achieve."
+            }
+        },
+        "diskMbpsReadWrite": {
+            "defaultValue": 768,
+            "type": "Int",
+            "metadata": {
+                "description": "Data Disk MBps value representing the maximum throughput that the disk can achieve."
+            }
+        },
+        "logicalSectorSize": {
+            "defaultValue": 4096, 
+            "type": "Int",
+            "metadata": {
+                "descriptions": "Logical sector size in bytes for Ultra disks."
+            }
+        },
         "useAcceleratedNetworking": {
             "defaultValue": "[bool('false')]",
             "type": "Bool",
